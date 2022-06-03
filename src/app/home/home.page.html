@@ -6,15 +6,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-button routerLink="\contact-add">ADD CONTACT</ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-card *ngFor="let item of contacts">
+      <ion-card-header>
+      <h1>{{item?.contact?.nome | uppercase}}</h1>
+      </ion-card-header>
+      <ion-card-content>
+      <p>{{item?.contact?.telefone | uppercase}} - {{item?.contact?.email | uppercase}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

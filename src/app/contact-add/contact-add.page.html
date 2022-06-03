@@ -5,16 +5,21 @@
 </ion-header>
 
 <ion-content>
-
   <ion-item>
     <ion-label stacked>Nome</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>Telefone</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>Email</ion-label>
+    <ion-input type="text" name="nome" [(ngModel)]="model.nome"></ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label stacked>Telefone</ion-label>
+    <ion-input type="tel" name="telefone" [(ngModel)]="model.telefone"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Email</ion-label>
+    <ion-input type="email" name="email" [(ngModel)]="model.email"></ion-input>
+  </ion-item>
+
+  <ion-button type="submit" (click)="save()">Salvar</ion-button>
 
 </ion-content>

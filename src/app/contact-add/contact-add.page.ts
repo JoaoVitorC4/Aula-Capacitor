@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from '../models/contact.model';
+import { ToastController } from '@ionic/angular';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-contact-add',
@@ -7,11 +8,21 @@ import { Contact } from '../models/contact.model';
   styleUrls: ['./contact-add.page.scss'],
 })
 export class ContactAddPage implements OnInit {
-  contact: Contact;
+  model: any = [];
   key: string;
-  constructor() { }
+  constructor(private storageService: ContactService,
+    private toast :ToastController) { }
 
   ngOnInit() {
+  }
+
+  save(){
+    this.storageService.insert(this.model).then(() => {
+      console.log("SALVO COM SUCESSO!");
+    }).catch(() =>{
+      console.log("ERRO");
+    })
+
   }
 
 }
